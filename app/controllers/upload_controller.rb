@@ -11,6 +11,7 @@ class UploadController < ApplicationController
     else           
        
          @all_albumb=Albumb.all
+          
     end
   end
   def create
