@@ -1,0 +1,37 @@
+
+
+		
+		<div class="col-md-3">
+		
+	
+			<h2> Add New Album</h2>
+				<%= bootstrap_form_for @albumb, url: upload_index_path, :html => { :multipart => true } do |f| %>
+				<p>
+    
+   					 <%= f.text_field :name %>
+  				</p>
+ 
+				 <p>
+    
+   					 <%= f.text_area :description %>
+  				</p>
+  
+  
+  						<%= f.fields_for :images, :html => { :multipart => true } do |image| %>
+  		
+  		
+  							<%= image.text_field :name%><br/>
+  		
+    						<%= image.file_field :avatar %><br>
+    	
+    	
+    						<%= image.text_field :tag_list %><br />
+  						<% end %>
+  
+ 
+  					<p>
+    				<%= f.submit %>
+  					</p>
+ 				<% end%>
+ 		</div>
+ 

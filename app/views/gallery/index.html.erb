@@ -1,0 +1,38 @@
+
+<div class="container-fluid">
+<%k=0%>
+<%for i in 0..2%>
+	
+	<div class="row margin-bottom-3">
+		<% for j in 0..3 %>
+	
+			<div class="col-md-3 ">
+				<div class="img-box-hieght">
+					<div>
+						<%= image_tag(@images[k].avatar.url(:thumb),class: "img-responsive")%>
+						
+					</div>
+					<hr class="alt">
+					<div><p>Name: 
+					<%= @images[k].name%>
+					</p>	
+					</div>
+					<div><p>Albumb: 
+					<%= @images[k].albumb.name%>
+					</p>	
+					</div>
+					<div><p>Tags: 
+					
+						<%= raw @images[k].tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %>
+					
+						</p>	
+					</div>
+				</div>
+			</div>
+		<%end%>
+		<% k= k+1 %>
+	</div>
+	
+	<%end%>
+</div>
+

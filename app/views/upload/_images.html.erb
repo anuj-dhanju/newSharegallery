@@ -1,0 +1,25 @@
+
+		<div class="col-md-3">
+		
+	
+			<h2> Add image in albumb</h2>
+				<%= bootstrap_form_for @image, url: upload_create_image_path(@albumb)  do |image| %>
+				
+  
+  						
+  		
+  		
+  							<%= image.text_field :name%><br/>
+  		
+    						<%= image.file_field :avatar %><br>
+    	
+    	
+    						<%= image.text_field :tag_list %><br />
+    						
+    				
+ 
+  					<p>
+    				<%= image.submit %>
+  					</p>
+ 				<% end%>
+ 		</div>

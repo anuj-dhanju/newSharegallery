@@ -1,0 +1,25 @@
+<%= render 'images' %>
+		
+		<% @images.each do |image| %>
+		<div class="col-md-3  margin-bottom-3">
+			<div class="img-box-hieght">
+				<div>
+					<%= image_tag(image.avatar.url(:thumb),class: "img-responsive")%>			
+						
+				</div>
+				<hr class="alt">
+				<div><p>Name: 
+					<%= image.name%>
+					</p>	
+				</div>
+				<div><p>Tags: 
+					
+					<%= raw image.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %>
+					</p>	
+				</div>
+				
+			</div>
+		</div>
+		<%end%>
+
+	

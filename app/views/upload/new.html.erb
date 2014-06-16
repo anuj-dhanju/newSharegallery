@@ -1,0 +1,53 @@
+<%= render 'albumb'%>
+		
+		<% @all_albumb.each do |albumb| %>
+		<div class="col-md-3  margin-bottom-3">
+			<div class="img-box-hieght">
+				<div>
+					<%= link_to image_tag(albumb.images.first.avatar.url(:thumb),class: "img-responsive"), upload_path(albumb)%>			
+						
+				</div>
+				<hr class="alt">
+				<div><p>Name: 
+					<%= albumb.name%>
+					</p>	
+				</div>
+				<div><p>Description: 
+					<%= albumb.description%>
+					</p>	
+				</div>
+				<div><p> 
+					<%= link_to "Delete Album", upload_path(albumb), method: :delete %>
+					</p>	
+				</div>
+			</div>
+		</div>
+		<%end%>
+		
+		
+		<% @images.each do |image| %>
+		<div class="col-md-3  margin-bottom-3">
+			<div class="img-box-hieght">
+				<div>
+					<%= image_tag(image.avatar.url(:thumb),class: "img-responsive")%>			
+						
+				</div>
+				<hr class="alt">
+				<div><p>Name: 
+					<%= image.name%>
+					</p>	
+				</div>
+				<div><p>Tags: 
+					
+					<%= raw image.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %>
+					</p>	
+				</div>
+				
+			</div>
+		</div>
+		<%end%>
+
+	
+
+
+
